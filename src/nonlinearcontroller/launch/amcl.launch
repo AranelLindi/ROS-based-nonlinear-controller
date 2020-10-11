@@ -1,0 +1,12 @@
+<launch>
+	<!-- WORLDFRAME -->
+	<node pkg="tf2origin" name="worldframe_amcl" type="worldframe_amcl" output="screen" />
+
+	<!-- PFADVERFOLGUNG RVIZ -->
+	<node pkg="tf2origin" name="pathpublisher_amcl" type="pathpublisher_amcl" />	
+
+	<!-- CONTROLLER -->
+	<!-- node_start_delay lässt Controller 1.5 Sekunden nach worldframe starten -->
+	<arg name="node_start_delay" default="1.5" />
+	<node pkg="nonlinearcontroller" name="controller" type="controller" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@'" />
+</launch>

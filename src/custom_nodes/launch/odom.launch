@@ -1,0 +1,10 @@
+<launch>
+	<!-- WORLDFRAME -->
+	<node pkg="tf2origin" name="worldframe_odom" type="worldframe_odom" output="screen" />
+	
+	<!-- PFADVERFOLGUNG RVIZ -->
+	<node pkg="tf2origin" name="pathpublisher_odom" type="pathpublisher_odom" />
+	
+	<!-- PROTOCOL -->
+	<node pkg="custom_nodes" name="odomposition" type="odomposition" output="screen" />
+</launch>

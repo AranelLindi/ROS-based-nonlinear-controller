@@ -1,0 +1,10 @@
+<launch>
+	<!-- WORLDFRAME -->
+	<node pkg="tf2origin" name="worldframe_amcl" type="worldframe_amcl" output="screen" />
+	
+	<!-- PFADVERFOLGUNG RVIZ -->
+	<node pkg="tf2origin" name="pathpublisher_amcl" type="pathpublisher_amcl" />
+	
+	<!-- PROTOCOL -->
+	<node pkg="custom_nodes" name="amclposition" type="amclposition" output="screen" />
+</launch>
